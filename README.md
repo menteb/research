@@ -1,2 +1,2 @@
-# research
+# Research
 Academic tool for doing research the Way of the Nerd
