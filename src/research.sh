@@ -6,12 +6,17 @@
 set -o pipefail
 
 PREFIX="${RESEARCH_STORE_DIR:-$HOME/Documents/Research}"
-ARTICLES="${RESEARCH_STORE_DIR:-$HOME/Documents/Articles}"
-BOOKS="${RESEARCH_STORE_DIR:-$HOME/Documents/Books}"
-NOTES="${RESEARCH_STORE_DIR:-$HOME/Documents/Notes}"
-GLOBALBIB="$PREFIX/global.bib"
-TAGS="$PREFIX/tags"
-KEYWORDS="$PREFIX/keywords"
+ARTICLES="${RESEARCH_ARTICLES_DIR:-$PREFIX/Articles}"
+BOOKS="${RESEARCH_BOOKS_DIR:-$PREFIX/Books}"
+NOTES="${RESEARCH_NOTES_DIR:-$PREFIX/Notes}"
+GLOBALBIB="${RESEARCH_GLOBALBIB:-$PREFIX/global.bib}"
+TAGS="${RESEARCH_TAGS:-$PREFIX/tags}"
+KEYWORDS="${RESEARCH_KEYWORDS:-$PREFIX/keywords}"
+CITEFORMAT="${RESEARCH_CITEFORM:-chicago}" # apa, chicago, harvard, mla, vancouver
+EDITOR="${RESEARCH_EDITOR:-vi}"
+PDFREADER="${RESEARCH_PDFREADER:-adobe}"
+EDITMODE="${RESEARCH_EDITMODE:-both}" # note, pdf, both
+RESEARCHER=$RESEARCH_RESEARCHER
 
 #
 # BEGIN helper functions
@@ -34,7 +39,7 @@ die() {
 #
 
 #
-# BEGIN subcommand functions
+# BEGIN functions
 #
 
 cmd_getdoi() {
@@ -52,7 +57,7 @@ cmd_getdoi() {
 	# DOI: <enter>
 
 	# DOI found: $DOI
-	echo "haha"
+	echo "getdoi"
 }
 
 cmd_getbib() {
